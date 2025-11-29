@@ -24,21 +24,21 @@ CREATE TABLE Courses (
                                    instructor_id INT REFERENCES Instructors(instructor_id)
 );
 
-CREATE TABLE elearning.Enrollments (
+CREATE TABLE Enrollments (
                                        enrollment_id SERIAL PRIMARY KEY,
                                        student_id INT REFERENCES Students(student_id),
                                        course_id INT REFERENCES Courses(course_id),
                                        enroll_date DATE NOT NULL
 );
 
-CREATE TABLE elearning.Assignments (
+CREATE TABLE Assignments (
                                        assignment_id SERIAL PRIMARY KEY,
                                        course_id INT REFERENCES Courses(course_id),
                                        title VARCHAR(100) NOT NULL,
                                        due_date DATE NOT NULL
 );
 
-CREATE TABLE elearning.Submissions (
+CREATE TABLE Submissions (
                                        submission_id SERIAL PRIMARY KEY,
                                        assignment_id INT REFERENCES Assignments(assignment_id),
                                        student_id INT REFERENCES Students(student_id),
